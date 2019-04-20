@@ -29,7 +29,7 @@
                     },
                     tooltip: {},
                     legend: {
-                        data: ['Woman', 'Man']
+                        data: ['BeforeDating', 'AfterDating']
                     },
                     radar: {
                         name: {
@@ -37,7 +37,7 @@
                             color:'#72ACD1'
                         },
                         triggerEvent: true,
-                        // shape: 'circle',
+                        shape: 'circle',
                         indicator: [
                            { text: 'Shared Interests', max: 31},
                            { text: 'Ambition', max: 31},
@@ -48,7 +48,7 @@
                         ]
                     },
                     series: [{
-                        name: 'beforeDating',
+                        name: 'Man',
                         type: 'radar',
                         label: {
                             normal: {
@@ -58,12 +58,12 @@
                         areaStyle: {normal: {}},
                         data : [
                             {
-                                value : [12.70, 12.83, 17.15, 21.00, 18.31, 18.06],
-                                name : 'Woman'
+                                value : [11.00, 8.55, 17.76, 19.54, 16.50, 26.92],
+                                name : 'BeforeDating'
                             },
                              {
-                                value : [11.00, 8.55, 17.76, 19.54, 16.50, 26.92],
-                                name : 'Man'
+                                value : [11.54, 8.48, 17.84, 16.66, 15.07, 30.34],
+                                name : 'AfterDating'
                             }
                         ]
                     }]
