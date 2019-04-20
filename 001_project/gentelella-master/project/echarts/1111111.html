@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="./dist/echarts.js"></script>
+    <script src='./lib/echarts-wordcloud.js'></script>
+
+    <script src="./test/lib/esl.js"></script>
+    <script src="./test/lib/config.js"></script>
+    <script src="./test/lib/jquery.min.js"></script>
+    <script src="./test/lib/dat.gui.min.js"></script>
+</head>
+
+<body>
+            <style>
+            #main2 {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+        </style>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="header">
+        <h1>City Gallery</h1>
+        </div>
+        
+        <div id="nav">
+        London<br>
+        Paris<br>
+        Tokyo<br>
+        </div>
+        
+        <div id="main" style="width: 600px;height:400px;"></div>
+            <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('main'));
+        
+                // 指定图表的配置项和数据
+                var option = {
+                    title: {
+                        text: 'ECharts 入门示例'
+                    },
+                    tooltip: {},
+                    legend: {
+                        data:['销量']
+                    },
+                    xAxis: {
+                        data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: '销量',
+                        type: 'bar',
+                        data: [5, 20, 36, 10, 10, 20]
+                    }]
+                };
+        
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            </script>
+        
+        <div id="main1" style="width: 600px;height:400px;"></div>
+            <script>
+                var myChart1 = echarts.init(document.getElementById('main1'));
+                // 绘制图表。
+                echarts.init(document.getElementById('main1')).setOption({
+                    series: {
+                        type: 'pie',
+                        data: [
+                            {name: 'A', value: 1212},
+                            {name: 'B', value: 2323},
+                            {name: 'C', value: 1919}
+                        ]
+                    }
+                });
+            </script>       
+
+
+
+        <div id='main2'></div>
+
+        <script>
+                var chart2 = echarts.init(document.getElementById('main2'));
+    
+                var option = {
+                    tooltip: {},
+                    series: [ {
+                        type: 'wordCloud',
+                        gridSize: 2,
+                        sizeRange: [12, 50],
+                        rotationRange: [-90, 90],
+                        shape: 'pentagon',
+                        width: 600,
+                        height: 400,
+                        drawOutOfBound: true,
+                        textStyle: {
+                            normal: {
+                                color: function () {
+                                    return 'rgb(' + [
+                                        Math.round(Math.random() * 160),
+                                        Math.round(Math.random() * 160),
+                                        Math.round(Math.random() * 160)
+                                    ].join(',') + ')';
+                                }
+                            },
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowColor: '#333'
+                            }
+                        },
+                        data: [
+                            {
+                                name: 'Sam S Club',
+                                value: 10000,
+                                textStyle: {
+                                    normal: {
+                                        color: 'black'
+                                    },
+                                    emphasis: {
+                                        color: 'red'
+                                    }
+                                }
+                            },
+                            {
+                                name: 'Macys',
+                                value: 6181
+                            },
+                            {
+                                name: 'Amy Schumer',
+                                value: 4386
+                            },
+                            {
+                                name: 'Jurassic World',
+                                value: 4055
+                            },
+                            {
+                                name: 'Charter Communications',
+                                value: 2467
+                            },
+                            {
+                                name: 'Chick Fil A',
+                                value: 2244
+                            },
+                            {
+                                name: 'Planet Fitness',
+                                value: 1898
+                            },
+                            {
+                                name: 'Pitch Perfect',
+                                value: 1484
+                            },
+                            {
+                                name: 'Express',
+                                value: 1112
+                            },
+                            {
+                                name: 'Home',
+                                value: 965
+                            },
+                            {
+                                name: 'Johnny Depp',
+                                value: 847
+                            },
+                            {
+                                name: 'Lena Dunham',
+                                value: 582
+                            },
+                            {
+                                name: 'Lewis Hamilton',
+                                value: 555
+                            },
+                            {
+                                name: 'KXAN',
+                                value: 550
+                            },
+                            {
+                                name: 'Mary Ellen Mark',
+                                value: 462
+                            },
+                            {
+                                name: 'Farrah Abraham',
+                                value: 366
+                            },
+                            {
+                                name: 'Rita Ora',
+                                value: 360
+                            },
+                            {
+                                name: 'Serena Williams',
+                                value: 282
+                            },
+                            {
+                                name: 'NCAA baseball tournament',
+                                value: 273
+                            },
+                            {
+                                name: 'Point Break',
+                                value: 265
+                            }
+                        ]
+                    } ]
+                };
+    
+                chart2.setOption(option);
+    
+                window.onresize = chart2.resize;
+    </script>
+
+
+<button class="click_btn">点击跳转</button>
+    <script>
+        var myBtn=document.getElementsByClassName('click_btn')[0];
+        myBtn.onclick=function(){
+            window.location="./test/graph.html";
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="section">
+        <h1>London</h1>
+        <p>
+        London is the capital city of England. It is the most populous city in the United Kingdom,
+        with a metropolitan area of over 13 million inhabitants.
+        </p>
+        <p>
+        Standing on the River Thames, London has been a major settlement for two millennia,
+        its history going back to its founding by the Romans, who named it Londinium.
+        </p>
+        </div>
+        
+        <div id="footer">
+        Copyright W3School.com.cn
+        </div>
+    
+    
+   
+
+    
+
+</body>
+</html>
