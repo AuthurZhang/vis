@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var option = {
+    dataset: {
+        source: [
+            ['score', 'amount', 'product'],
+            [0, 2.869565217, 'sum(gaming)'],
+            [0, 3.739130435, 'sum(tvsports)'],
+            [0, 4.826086957, 'sum(tv)'],
+            [0, 5.347826087, 'sum(yoga)'],
+            [0, 5.391304348, 'sum(clubbing)'],
+            [0, 5.913043478, 'sum(shopping)'],
+            [0, 6.217391304, 'sum(sports)'],
+            [0, 6.47826087, 'sum(concerts)'],
+            [0, 6.52173913, 'sum(art)'],
+            [0, 6.608695652, 'sum(hiking)'],
+            [0, 6.739130435, 'sum(exercise)'],
+            [0, 6.913043478, 'sum(theater)'],
+            [1, 7, 'sum(museums)'],
+            [1, 7.130434783, 'sum(reading)'],
+            [1, 7.565217391, 'sum(movies)'],
+            [1, 7.608695652, 'sum(music)'],
+            [1, 7.782608696, 'sum(dining)']
+        ]
+    },
+    grid: {containLabel: true},
+    xAxis: {name: 'Average'},
+    yAxis: {type: 'category'},
+    visualMap: {
+        orient: 'horizontal',
+        left: 'center',
+        min: 0,
+        max: 1,
+        text: ['High Score', 'Low Score'],
+        // Map the score column to color
+        dimension: 0,
+        inRange: {
+            color: ['#D7DA8B', '#E15457']
+        }
+    },
+    series: [
+        {
+            type: 'bar',
+            encode: {
+                // Map the "amount" column to X axis.
+                x: 'amount',
+                // Map the "product" column to Y axis
+                y: 'product'
+            }
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
