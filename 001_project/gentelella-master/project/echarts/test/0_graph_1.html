@@ -37,15 +37,14 @@
 
                 });
 
-                $.get('./data/text.gexf', function (xml) {
+                $.get('./data/career_network.gexf', function (xml) {
                     var graph = gexf.parse(xml);
                     var categories = [];
-                    categories[0] = {
-                            name: 'Female'
-                        };
-                    categories[1] = {
-                        name: 'Male'
-                    };
+                    // for (var i = 0; i < 18; i++) {
+                    //     categories[i] = {
+                    //         name: i
+                    //     };
+                    // }
 
                     graph.nodes.forEach(function (node) {
                         delete node.itemStyle;
@@ -68,7 +67,7 @@
                             
 
                         };
-                        node.category = node.attributes['gender'];
+                        // node.category = node.id;
                     });
 
                     graph.links.forEach(function (link) {
@@ -92,7 +91,7 @@
                         animationEasingUpdate: 'quinticInOut',
                         series : [
                             {
-                                name: 'Person No.',
+                                name: 'Field No.',
                                 type: 'graph',
                                 layout: 'none',
                                 data: graph.nodes,
@@ -163,7 +162,7 @@
                         .onChange(function (value) {
                             chart.setOption({
                                 series: [{
-                                    name: 'Person No.',
+                                    name: 'Field No.',
                                     layout: value
                                 }]
                             });
