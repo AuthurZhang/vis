@@ -37,7 +37,7 @@
 
                 });
 
-                $.get('./data/les-miserables.gexf', function (xml) {
+                $.get('./data/text.gexf', function (xml) {
                     var graph = gexf.parse(xml);
                     var categories = [];
                     for (var i = 0; i < 9; i++) {
@@ -77,7 +77,7 @@
                         animationEasingUpdate: 'quinticInOut',
                         series : [
                             {
-                                name: 'Les Miserables',
+                                name: 'Wang Kai',
                                 type: 'graph',
                                 layout: 'none',
                                 data: graph.nodes,
